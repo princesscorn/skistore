@@ -34,6 +34,9 @@ if (app.Environment.IsDevelopment())
 // wwk remove it because it will cause some warning later on.
 //app.UseHttpsRedirection();
 
+// wwk use static files
+app.UseStaticFiles();
+
 app.UseAuthorization();
 
 /* Then we've got the middleware to map controllers and so our API knows where to send the HTTP requests.
