@@ -31,6 +31,9 @@ if (app.Environment.IsDevelopment())
 // wwk use static files
 app.UseStaticFiles();
 
+// wwk use Cors Policy
+app.UseCors("CorsPolicy");
+
 app.UseAuthorization();
 
 /* Then we've got the middleware to map controllers and so our API knows where to send the HTTP requests.

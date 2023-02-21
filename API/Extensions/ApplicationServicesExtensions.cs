@@ -43,7 +43,24 @@ namespace API.Extensions
                 };
             });
 
+            /*
+            Our plan for when we do publish our application is for our API server to host our client application.
+            Now, if our client application is on the same domain as our API server, then we don't care about this
+            header.
 
+            It's not important because we're coming from the same origin rather than a different origin.
+            But for our client app, which we'll certainly be running on a different origin, we need to enable
+            this particular policy.
+
+            So there's two parts to this.
+            */
+            services.AddCors( opt => 
+            {
+                opt.AddPolicy("CorsPolicy", policy => 
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+                });
+            });
             return services;
         }
     }
